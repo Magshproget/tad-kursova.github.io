@@ -8,6 +8,10 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![HeroUI](https://img.shields.io/badge/UI-HeroUI-000000?logo=nextui&logoColor=white)](https://heroui.com/)
 
+<p align="center">
+  <img src="assets/preview.png" alt="Website Ping Monitor Dashboard Preview" width="100%">
+</p>
+
 ---
 
 ## Основні можливості

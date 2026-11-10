@@ -8,27 +8,46 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![HeroUI](https://img.shields.io/badge/UI-HeroUI-000000?logo=nextui&logoColor=white)](https://heroui.com/)
 
+---
+
+## Огляд інтерфейсу та прив'язка до компонентів
+
+### 1. Керування моніторингом та список ресурсів
+**Файли:** `TadKursova/src/components/add-website-form.tsx`, `website-list.tsx`, `hooks/use-ping-monitor.ts`
+
 <p align="center">
-  <img src="assets/preview.png" alt="Website Ping Monitor Dashboard Preview" width="100%">
+  <img src="assets/website-management.png" alt="Website Management and Monitoring Dashboard" width="100%">
 </p>
+
+- Форма швидкого додавання сайтів із валідацією назви та коректності URL.
+- Картки активних ресурсів із кнопками індивідуального опитування та видалення.
+- Панель швидких дій: кнопка масового пінгу всіх збережених серверів та вивантаження даних.
 
 ---
 
-## Основні можливості
+### 2. Візуалізація динаміки часу відгуку (Latency Timeline)
+**Файли:** `TadKursova/src/components/ping-history-chart.tsx`
 
-- **Моніторинг у реальному часі**:
-  - Індивідуальний та масовий пінг ресурсів («Опитати всі сайти»).
-  - Замір точного часу відгуку (`latency` в мс) та фіксація статусів.
-- **Візуалізація та аналітика**:
-  - Інтерактивні часові графіки динаміки відгуку на базі **Recharts**.
-  - Зведені картки метрик: середній час відповіді, відсоток доступності, максимальна та мінімальна затримка.
-  - Таблиця історії перевірок із мітками часу, кодами відповідей та фільтрацією.
-- **Збереження та експорт даних**:
-  - Автоматичне збереження списку ресурсів та історії замірів у `localStorage` браузера.
-  - Експорт накопиченої аналітики у файл **JSON** для подальшого аналізу.
-- **Інтерфейс користувача**:
-  - Компонентна база на **HeroUI** з анімаціями переходів на **Framer Motion**.
-  - Адаптивний дизайн із підтримкою темної та світлої теми.
+<p align="center">
+  <img src="assets/latency-chart.png" alt="Ping Latency History Chart" width="100%">
+</p>
+
+- Інтерактивний часовий графік затримок на базі бібліотеки **Recharts**.
+- Відображення коливань швидкості відповіді (мс) для обраного веб-ресурсу.
+- Тултіпи з фіксацією точного часу заміру та числовим значенням затримки.
+
+---
+
+### 3. Зведена аналітика (KPI) та журнал перевірок
+**Файли:** `TadKursova/src/components/ping-statistics.tsx`, `ping-response-time-table.tsx`
+
+<p align="center">
+  <img src="assets/statistics-table.png" alt="Statistics KPI Cards and Response Log Table" width="100%">
+</p>
+
+- Аналітичні картки ключових показників: середній час відгуку, відсоток доступності (uptime), мінімальний та максимальний пінг.
+- Детальна таблиця логів замірів із кодами відповідей (HTTP 200 OK), часовими мітками та статусами у вигляді чіпів HeroUI.
+- Експорт повної історії замірів у файл формату **JSON** для подальшого аналізу.
 
 ---
 
@@ -46,18 +65,22 @@
 
 ```text
 tad-kursova.github.io/
+├── assets/                          # Скріншоти та матеріали документації
+│   ├── website-management.png
+│   ├── latency-chart.png
+│   └── statistics-table.png
 ├── TadKursova/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── add-website-form.tsx         # Форма додавання URL до списку моніторингу
+│   │   │   ├── add-website-form.tsx         # Форма додавання URL до моніторингу
 │   │   │   ├── ping-history-chart.tsx       # Графік часових рядів затримки (Recharts)
 │   │   │   ├── ping-response-time-table.tsx # Таблиця детальної історії перевірок
 │   │   │   ├── ping-statistics.tsx          # Зведені картки аналітики (KPI)
 │   │   │   ├── website-details.tsx          # Детальний звіт за обраним ресурсом
 │   │   │   └── website-list.tsx             # Список доданих сайтів та їхній статус
 │   │   ├── hooks/
-│   │   │   └── use-ping-monitor.ts          # Стан додатку, робота з localStorage та логіка пінгу
-│   │   ├── App.tsx                          # Головний контейнер панелі управління
+│   │   │   └── use-ping-monitor.ts          # Логіка пінгу та збереження в localStorage
+│   │   ├── App.tsx                          # Головний контейнер інтерфейсу
 │   │   └── main.tsx                         # Точка входу додатку
 │   ├── tailwind.config.js
 │   ├── vite.config.ts
@@ -75,18 +98,18 @@ tad-kursova.github.io/
 
 ### Встановлення та запуск
 
-1. Склонуйте репозиторій:
+1. Склонувати репозиторій:
    ```bash
    git clone https://github.com/Magshproget/tad-kursova.github.io.git
    cd tad-kursova.github.io/TadKursova
    ```
 
-2. Встановіть залежності:
+2. Встановити залежності:
    ```bash
    npm install
    ```
 
-3. Запустіть локальний сервер розробки:
+3. Запустити локальний сервер розробки:
    ```bash
    npm run dev
    ```
